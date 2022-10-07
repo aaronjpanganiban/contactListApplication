@@ -1,0 +1,38 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <p class="h3 text-dark fw-bold"><i class="fa fa-eye"></i>View Contact
+            </p>
+        </div>
+    </div>  
+</div>
+
+<!-- Condition based Loading  -->
+<div *ngIf="loading">
+    <app-spinner></app-spinner>
+</div>
+
+
+<!-- Contact Details -->
+<div *ngIf="!loading && isNotEmpty()" class="container">
+    <div class="row align-items-center">
+        
+        <div class="col-sm-6">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-light"><strong>Id : </strong><span>{{contact.id}}</span></li>
+                <li class="list-group-item list-group-item-light"><strong>Name : </strong><span>{{contact.name}}</span></li>
+                <li class="list-group-item list-group-item-light"><strong>Email : </strong><span>{{contact.email}}</span></li>
+                <li class="list-group-item list-group-item-light"><strong>Mobile : </strong><span>{{contact.mobile}}</span></li>
+                <li class="list-group-item list-group-item-light"><strong>Company : </strong><span>{{contact.company}}</span></li>
+                <li class="list-group-item list-group-item-light"><strong>Title : </strong><span>{{contact.title}}</span></li>
+            </ul>
+        </div>
+        <div class="col-sm-2">
+            <img [src]="contact.photo" alt="contact-img" class="contact-img-details" onerror="this.src='https://media.istockphoto.com/vectors/man-icon-black-icon-person-symbol-vector-id1332100919?k=20&m=1332100919&s=612x612&w=0&h=zkXGeOtSyUajHAoWxlTPTC-qWjjnUkh6twiCK9b0JoI='">
+        </div>        
+    </div>
+<div class="row mt-2">
+    <div class="col">
+        <a routerLink="/" class="btn btn-dark"><i class="fa fa-arrow-alt-circle-left"></i>Back</a>
+    </div>
+</div>
