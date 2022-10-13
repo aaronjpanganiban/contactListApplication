@@ -1,24 +1,13 @@
 {
   "contacts": [
     {
-      "id": "0XKJV9E",
-      "name": "Steve Rogers",
-      "company": "Shield",
-      "email": "Ilovebucky@gmail.com",
-      "title": "First Avenger",
-      "mobile": 419204,
-      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq5w0GiUCMJyGFfEItVV1IshXagdDSx3tRWQ&usqp=CAU",
-      "groupId": "4"
-    },
-    {
       "id": "HSt2uzH",
       "name": "Luke Skywalker",
-      "company": "Council of Jedi",
       "email": "lukeleia@holonet.com",
-      "title": "Jedi Master",
-      "mobile": 17273,
       "photo": "https://lumiere-a.akamaihd.net/v1/images/last-jedi-luke-quote-1_711c2443.jpeg?region=358%2C116%2C604%2C604",
-      "groupId": "3"
+      "mobile": 12312,
+      "company": "Council of Jedi",
+      "title": "Jedi Master"
     },
     {
       "name": "Amer \"Miracle\" Al-Barkawi",
@@ -55,15 +44,6 @@
       "id": "mbRm33Q",
       "photo": "https://orcz.com/images/thumb/b/b0/Dota2mirana.jpg/400px-Dota2mirana.jpg",
       "title": "Priestess of the Moon"
-    },
-    {
-      "name": "Chandler Bing",
-      "email": "janiceihateyou@hotmail.com",
-      "mobile": 986395250,
-      "company": "Unknown",
-      "title": "The Prankster",
-      "id": "MtE4Vxe",
-      "photo": "https://media1.popsugar-assets.com/files/thumbor/wdoni8-dpP0HaqX4sYfe_RWGUVg/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2016/10/06/806/n/1922283/5d84a4af57f69609b26c99.07034779_edit_img_image_35947698_1468270800/i/Chandler-Bing-Lines-From-Friends-GIFs.jpg"
     }
   ]
 }

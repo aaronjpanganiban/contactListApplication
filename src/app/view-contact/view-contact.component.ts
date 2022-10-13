@@ -21,12 +21,14 @@ export class ViewContactComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((param)=>{
       this.contactId = param.get('contactId')
+      console.log(this.contactId)
     });
     if(this.contactId){
       this.loading = true;
     this.contService.getContacts(this.contactId).subscribe((data:MyContact)=>{
       this.contact = data;
       this.loading = false;
+      console.log(data)
     });
     }
   }

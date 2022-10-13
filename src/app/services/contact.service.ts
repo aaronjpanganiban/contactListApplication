@@ -25,13 +25,13 @@ export class ContactService {
   }
 
   //Create Contacts
-  public CreateContacts(contact:MyContact):Observable<MyContact>{
+  public CreateContacts(contact:any):Observable<MyContact>{
     let dataUrl:string = `${this.baseUrl}/contacts`;
     return this.http.post<MyContact>(dataUrl, contact)
   }
 
   //Update Contacts
-  public updateContacts(contact:MyContact, contactId:string):Observable<MyContact>{
+  public updateContacts(contact:MyContact, contactId:any):Observable<MyContact>{
     let dataUrl:string = `${this.baseUrl}/contacts/${contactId}`;
     return this.http.put<MyContact>(dataUrl,contact)
   }
@@ -41,4 +41,10 @@ export class ContactService {
     let dataUrl:string = `${this.baseUrl}/contacts/${contactId}`;
     return this.http.delete<MyContact>(dataUrl)
   }
+
+  
+
+  
 }
+
+

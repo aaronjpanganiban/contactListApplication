@@ -10,8 +10,8 @@ import { EditContactComponent } from './edit-contact/edit-contact.component';
 import { ViewContactComponent } from './view-contact/view-contact.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

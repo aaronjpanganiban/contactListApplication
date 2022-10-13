@@ -6,7 +6,59 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
-            <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" novalidate>
+            <form [formGroup]="contactForm" #contactChange>
+                <label for="name"><strong>Name</strong></label>
+                <div>
+                    <input type="text" id="name" name="name" aria-label="Enter your name" formControlName="name" [(ngModel)]="contact.name">
+                </div>
+                <div *ngIf="!contactForm.controls.name?.valid && (contactForm.controls.name?.dirty
+                ||contactForm.controls.name?.touched)">Name is Required</div>
+                <label for="email"><strong>Email</strong></label>
+                <div>
+                    <input type="email" id="email" name="email" aria-label="Enter your email" formControlName="email" [(ngModel)]="contact.email">
+                </div>
+                <div *ngIf="!contactForm.controls.email?.valid && (contactForm.controls.email?.dirty
+                ||contactForm.controls.email?.touched)">Email is Required</div>
+                <label for="mobile"><strong>Mobile#</strong></label>
+                <div>
+                    <input type="text" id="mobile" name="mobile" aria-label="Enter your mobile" formControlName="mobile" [(ngModel)]="contact.mobile">
+                </div>
+                <div *ngIf="!contactForm.controls.mobile?.valid && (contactForm.controls.mobile?.dirty
+                ||contactForm.controls.mobile?.touched)">Mobile is Required</div>
+                <label for="company"><strong>Company</strong></label>
+                <div>
+                    <input type="text" id="company" name="company" aria-label="Enter your company" formControlName="company" [(ngModel)]="contact.company">
+                </div>
+                <label for="title"><strong>Title</strong></label>
+                <div>
+                    <input type="text" id="title" name="title" aria-label="Enter your title" formControlName="title" [(ngModel)]="contact.title">
+                </div>
+                <label for="photo"><strong>Photo URL</strong></label>
+                <div>
+                    <input type="text" id="photo" name="photo" aria-label="Enter your photo" formControlName="photo" [(ngModel)]="contact.photo">
+                </div>
+                <div *ngIf="!isupdate" class="mb-2">
+                    <!-- <button type="submit" class="btn btn-success" [disabled]="!contactForm.valid">Create</button> -->
+                    <button (click)="addContact()" class="btn btn-success" [disabled]="!contactForm.valid">Create</button>
+                </div>
+                <div *ngIf="isupdate" class="mb-2" >
+                    <!-- <button (click)="update(contactChange['value'])" class="btn btn-primary" >Update</button> -->
+                    <button (click)="update()" class="btn btn-primary" [disabled]="!contactForm.valid">Update</button>
+                    <!-- <button (click)="addNewItem(['value'])" class="btn btn-primary" >Update</button> -->
+                </div>
+                <div class="mb-2">
+                    <!-- <button type="clear" class="btn btn-primary">Clear</button> -->
+                    <button (click)="test()" class="btn btn-danger">Test</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <form #contactForm="ngForm" novalidate #contactChange>
                 <div class="mb-2">
                     <input required [(ngModel)]="contact.name" name="name" type="text" class="form-control" placeholder="Name (required)" #name="ngModel" spellcheck="false">
                 </div>
@@ -28,10 +80,13 @@
                 <div class="mb-2">
                     <input [(ngModel)]="contact.photo" name="photo" type="text" class="form-control" placeholder="Photo Url (optional)" spellcheck="false">
                 </div>
-                <div class="mb-2">
-                    <button type="submit" class="btn btn-success" [disabled]="!contactForm.valid">Create</button>
+                <div *ngIf="!isupdate" class="mb-2">
+                    <button (click)="addContact()" class="btn btn-success" [disabled]="!contactForm.valid">Create</button>
+                </div>
+                <div *ngIf="isupdate" class="mb-2" >
+                    <button (click)="update()" class="btn btn-primary" [disabled]="!contactForm.valid">Update</button>
                 </div>
             </form>
         </div>
     </div>
-</div>
+</div> -->
