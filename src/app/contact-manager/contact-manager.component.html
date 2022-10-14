@@ -1,3 +1,4 @@
+<!-- Add Contact Visible/Invisible  -->
 <div class="container mt-3">
     <div class="row">
         <div class="col">
@@ -13,11 +14,10 @@
     <app-spinner></app-spinner>
 </div>
 
-
+<!-- Condition List  -->
 <div class="container mt-3">
    
     <h2>Contact List</h2>
-    <button (click)="test()" class="btn btn-danger">Test</button>
     <table class="table table-bordered border-secondary border-5 table-light table-hover">
       <thead class="table table-bordered table-dark">
           <tr>
@@ -41,9 +41,6 @@
                 <i class="fa fa-eye"></i>
             </a>
             <button class="btn btn-primary my-1" data-toggle="tooltip" data-placement="top" title="Edit Contact" (click)="showDetails(contact)"><i class="fa fa-pen"></i></button>
-            <!-- <a routerLink="/contacts/edit/{{contact.id}}" class="btn btn-primary my-1" data-toggle="tooltip" data-placement="top" title="Edit Contact">
-                <i class="fa fa-pen"></i>
-            </a> -->
             <button class="btn btn-danger my-1" data-toggle="tooltip" data-placement="top" title="Delete Contact" (click)="deleteContact(contact.id)">
                 <i class="fa fa-trash"></i>
             </button>
@@ -51,6 +48,4 @@
         </tr>
       </tbody>
     </table>
-    <div class="mb-2">
-  </div>
   </div>

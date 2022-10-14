@@ -3,94 +3,50 @@
     <app-spinner></app-spinner>
 </div>
 
+<!-- Contact Form  -->
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
             <form [formGroup]="contactForm" #contactChange>
                 <label for="name"><strong>Name</strong></label>
                 <div>
-                    <input type="text" id="name" name="name" aria-label="Enter your name" formControlName="name" >
+                    <input type="text" id="name" name="name" placeholder="(Required)" aria-label="Enter your name" formControlName="name" >
                 </div>
                 <div *ngIf="!contactForm.controls.name?.valid && (contactForm.controls.name?.dirty
-                ||contactForm.controls.name?.touched)">Name is Required</div>
+                ||contactForm.controls.name?.touched)">Valid name is Required</div>
                 <label for="email"><strong>Email</strong></label>
                 <div>
-                    <input type="email" id="email" name="email" aria-label="Enter your email" formControlName="email">
+                    <input type="email" id="email" name="email" placeholder="(Required)" aria-label="Enter your email" formControlName="email">
                 </div>
                 <div *ngIf="!contactForm.controls.email?.valid && (contactForm.controls.email?.dirty
-                ||contactForm.controls.email?.touched)">Email is Required</div>
+                ||contactForm.controls.email?.touched)">Valid email is Required</div>
                 <label for="mobile"><strong>Mobile#</strong></label>
                 <div>
-                    <input type="text" id="mobile" name="mobile" aria-label="Enter your mobile" formControlName="mobile">
+                    <input type="text" id="mobile" name="mobile" placeholder="11 Digit #(Required)" aria-label="Enter your 11-Digit mobile number" formControlName="mobile">
                 </div>
                 <div *ngIf="!contactForm.controls.mobile?.valid && (contactForm.controls.mobile?.dirty
-                ||contactForm.controls.mobile?.touched)">Mobile is Required</div>
+                ||contactForm.controls.mobile?.touched)">Valid mobile# is Required</div>
                 <label for="company"><strong>Company</strong></label>
                 <div>
-                    <input type="text" id="company" name="company" aria-label="Enter your company" formControlName="company">
+                    <input type="text" id="company" name="company" placeholder="(Optional)" aria-label="Enter your company" formControlName="company">
                 </div>
                 <label for="title"><strong>Title</strong></label>
                 <div>
-                    <input type="text" id="title" name="title" aria-label="Enter your title" formControlName="title">
+                    <input type="text" id="title" name="title" placeholder="(Optional)" aria-label="Enter your title" formControlName="title">
                 </div>
                 <label for="photo"><strong>Photo URL</strong></label>
                 <div>
-                    <input type="text" id="photo" name="photo" aria-label="Enter your photo" formControlName="photo">
+                    <input type="text" id="photo" name="photo" placeholder="(Optional)" aria-label="Enter your photo" formControlName="photo">
                 </div>
-                <div *ngIf="!isupdate" class="mb-2">
-                    <!-- <button type="submit" class="btn btn-success" [disabled]="!contactForm.valid">Create</button> -->
-                    <button (click)="addContact()" class="btn btn-success" [disabled]="!contactForm.valid">Create</button>
+                <div *ngIf="!isupdate" class="mt-2">
+                    <button (click)="addContact()" class="btn btn-success" [disabled]="!contactForm.valid">Create</button>&nbsp;
+                    <button (click)="resetForm()" class="btn btn-warning">Clear</button>
                 </div>
-                <div *ngIf="isupdate" class="mb-2" >
-                    <!-- <button (click)="update(contactChange['value'])" class="btn btn-primary" >Update</button> -->
-                    <button (click)="update()" class="btn btn-primary" [disabled]="!contactForm.valid">Update</button>
-                    <!-- <button (click)="addNewItem(['value'])" class="btn btn-primary" >Update</button> -->
-                </div>
-                <div class="mb-2">
-                    <!-- <button type="clear" class="btn btn-primary">Clear</button> -->
-                    <button (click)="test()" class="btn btn-danger">Test</button>
+                <div *ngIf="isupdate" class="mt-2" >
+                    <button (click)="update()" class="btn btn-primary" [disabled]="!contactForm.valid">Update</button>&nbsp;
+                    <button (click)="resetForm()" class="btn btn-warning">Clear</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
-<div>{{contact | json}}</div>
-<div>{{contact}}</div>
-<div>{{isupdate}}</div>
-
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <form #contactForm="ngForm" novalidate #contactChange>
-                <div class="mb-2">
-                    <input required [(ngModel)]="contact.name" name="name" type="text" class="form-control" placeholder="Name (required)" #name="ngModel" spellcheck="false">
-                </div>
-                <div *ngIf="!name?.valid && (name?.dirty || name?.touched)">Name Required</div>
-                <div class="mb-2">
-                    <input required email [(ngModel)]="contact.email" name="email" type="email" class="form-control" placeholder="Email (required)" #email="ngModel" spellcheck="false">
-                </div>
-                <div *ngIf="!email?.valid && (email?.dirty || email?.touched)">Email Not Valid</div>
-                <div class="mb-2">
-                    <input required [(ngModel)]="contact.mobile" name="mobile" type="number" class="form-control" placeholder="Mobile (required)" #mobile="ngModel" spellcheck="false">
-                </div>
-                <div *ngIf="!mobile?.valid && (mobile?.dirty || mobile?.touched)">Mobile Required</div>
-                <div class="mb-2">
-                    <input [(ngModel)]="contact.company" name="company" type="text" class="form-control" placeholder="Company (optional)" spellcheck="false">
-                </div>
-                <div class="mb-2">
-                    <input [(ngModel)]="contact.title" name="title" type="text" class="form-control" placeholder="Title (optional)" spellcheck="false">
-                </div>
-                <div class="mb-2">
-                    <input [(ngModel)]="contact.photo" name="photo" type="text" class="form-control" placeholder="Photo Url (optional)" spellcheck="false">
-                </div>
-                <div *ngIf="!isupdate" class="mb-2">
-                    <button (click)="addContact()" class="btn btn-success" [disabled]="!contactForm.valid">Create</button>
-                </div>
-                <div *ngIf="isupdate" class="mb-2" >
-                    <button (click)="update()" class="btn btn-primary" [disabled]="!contactForm.valid">Update</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div> -->

@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MyContact } from '../models/myContact';
 import { ContactService } from '../services/contact.service';
-import { ParamMap } from '@angular/router';
-import { map } from 'rxjs';
+
 
 @Component({
   selector: 'app-view-contact',

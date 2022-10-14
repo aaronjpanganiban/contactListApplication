@@ -19,13 +19,13 @@ export class ContactService {
     return this.http.get<MyContact[]>(dataUrl)
   }
   //get Single Contacts
-  public getContacts(contactId:string):Observable<MyContact>{
+  public getContacts(contactId:string|null):Observable<MyContact>{
     let dataUrl:string= `${this.baseUrl}/contacts/${contactId}`;
     return this.http.get<MyContact>(dataUrl);    
   }
 
   //Create Contacts
-  public CreateContacts(contact:any):Observable<MyContact>{
+  public CreateContacts(contact:string|null|object):Observable<MyContact>{
     let dataUrl:string = `${this.baseUrl}/contacts`;
     return this.http.post<MyContact>(dataUrl, contact)
   }
