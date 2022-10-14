@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MyContact } from '../models/myContact';
@@ -15,7 +15,8 @@ export class AddContactComponent implements OnInit {
   // public isupdate:boolean = false;
   // public contact:MyContact = {} as MyContact; 
   @Input() isupdate:boolean = false;
-  @Input() contact:MyContact = {} as MyContact;
+  @Input() contact = {} as MyContact;
+  // @Input() contact:MyContact = {} as MyContact;
   @Output() contactChange =new EventEmitter<MyContact>();
   @Output() contactAdd =new EventEmitter<MyContact>();
   // @Output() newItemEvent = new EventEmitter<string>();
@@ -23,6 +24,7 @@ export class AddContactComponent implements OnInit {
   
 
   @Input() contactForm = this.fb.group({
+  id:  [''],
   name:  ['',[Validators.required,Validators.minLength(3)]],
   email: ['',[Validators.required,Validators.email,Validators.minLength(10)]],
   mobile: ['',[Validators.required,Validators.minLength(11)]],
@@ -55,13 +57,38 @@ export class AddContactComponent implements OnInit {
   constructor(private contService:ContactService, private router:Router, private activatedRoute:ActivatedRoute, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-
     
-
   }
+
+  ngOnChanges(): void {
+    if(this.isupdate === true){
+      this.contactForm.patchValue({
+        id:this.contact.id,
+        name:this.contact.name,
+        email:this.contact.email,
+        mobile:this.contact.mobile,
+        company:this.contact.company,
+        title:this.contact.title,
+        photo:this.contact.photo
+      })
+    }
+  }
+
   test() {
     console.log(this.contactForm)
     console.log(this.contact)
+    this.contactForm.patchValue({
+      id:this.contact.id,
+      name:this.contact.name,
+      email:this.contact.email,
+      mobile:this.contact.mobile,
+      company:this.contact.company,
+      title:this.contact.title,
+      photo:this.contact.photo
+    })
+    console.log(this.contactForm.value)
+    // this.contact = {id:'', name:'Aaron',email:'test',mobile:'test', photo:'test', company:'test', title:'test'};
+    // console.log(this.contact)
   }
 
   // onSubmit(contactForm: { value: any; }) {
@@ -95,13 +122,13 @@ export class AddContactComponent implements OnInit {
   
   update() { 
     let contact: MyContact = {
-      id: this.contact.id,
-    name: this.contact.name,
-    email: this.contact.email,
-    photo: this.contact.photo,
-    mobile: this.contact.mobile,
-    company: this.contact.company,
-    title: this.contact.title
+      id: this.contactForm.value.id,
+    name: this.contactForm.value.name,
+    email: this.contactForm.value.email,
+    photo: this.contactForm.value.photo,
+    mobile: this.contactForm.value.mobile,
+    company: this.contactForm.value.company,
+    title: this.contactForm.value.title
     }
     this.contService.updateContacts(contact, this.contact.id).subscribe((data:MyContact)=>{
       window.location.reload();       

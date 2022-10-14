@@ -2,7 +2,7 @@
   "contacts": [
     {
       "id": "HSt2uzH",
-      "name": "Luke Skywalker",
+      "name": "Luke",
       "email": "lukeleia@holonet.com",
       "photo": "https://lumiere-a.akamaihd.net/v1/images/last-jedi-luke-quote-1_711c2443.jpeg?region=358%2C116%2C604%2C604",
       "mobile": 12312,
@@ -10,13 +10,13 @@
       "title": "Jedi Master"
     },
     {
-      "name": "Amer \"Miracle\" Al-Barkawi",
+      "id": "r7rp7tk",
+      "name": "Miracle",
       "email": "tryhardcarry@gmail.com",
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvhy2dU4AKjhpv33P2NkUinDAqZKe2QVYCSg&usqp=CAU",
       "mobile": 4868134,
       "company": "Team OG",
-      "title": "Main Carry",
-      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvhy2dU4AKjhpv33P2NkUinDAqZKe2QVYCSg&usqp=CAU",
-      "id": "r7rp7tk"
+      "title": "Main Carry"
     },
     {
       "name": "Danil \"Dendi\" Ishutin",
@@ -37,13 +37,22 @@
       "id": "djZTXuL"
     },
     {
-      "name": "Mirana Nightshade",
-      "email": "moonprincess@sentinels.com",
-      "mobile": 4732213849,
-      "company": "Radiant",
       "id": "mbRm33Q",
+      "name": "Mirana",
+      "email": "moonprincess@sentinels.com",
       "photo": "https://orcz.com/images/thumb/b/b0/Dota2mirana.jpg/400px-Dota2mirana.jpg",
+      "mobile": 4732213849,
+      "company": "Dire",
       "title": "Priestess of the Moon"
+    },
+    {
+      "id": "H9V9b7b",
+      "name": "Steve Rogers",
+      "email": "lukeleia@holonet.com",
+      "mobile": "1123131332112",
+      "company": "",
+      "title": "",
+      "photo": ""
     }
   ]
 }

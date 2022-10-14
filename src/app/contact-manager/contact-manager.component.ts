@@ -24,7 +24,8 @@ export class ContactManagerComponent implements OnInit {
   public contactId:string | null = null;
   public contact : MyContact = {} as MyContact;
   public baseUrl:string;
-  selectedContact:MyContact = new MyContact();
+  // selectedContact:MyContact = new MyContact();
+  selectedContact:any = new MyContact();
   chosenContact:MyContact = new MyContact();
 
   constructor(private contService:ContactService, private router:Router, private activatedRoute:ActivatedRoute, private http:HttpClient) { 
@@ -67,7 +68,7 @@ export class ContactManagerComponent implements OnInit {
   }
 
   buttonTitle:string = "Hide";
- visible:boolean = true;
+ visible:boolean = false;
  showhideUtility(){
    this.visible = this.visible?false:true;
    this.buttonTitle = this.visible?"Hide":"Show";
@@ -85,8 +86,10 @@ export class ContactManagerComponent implements OnInit {
   this.visible = true;
   this.isItUpdate = true;
   console.log(contact);
-  console.log(this.selectedContact);
   this.selectedContact=Object.assign({},contact)
+  console.log(this.selectedContact);
+  // this.selectedContact=this.contact;
+  //   console.log(this.selectedContact)
 }
 
 
